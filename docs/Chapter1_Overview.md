@@ -54,7 +54,7 @@ You can see there are several difference.
 ## Basic Idea
 The basic idea of spark streaming is splitting input data streaming into small batches, and each time one job process one batch.
 
-![](https://raw.githubusercontent.com/qhuang266/Spark-Streaming/master/img/streaming-flow.png)
+![](https://raw.githubusercontent.com/qhuang266/Spark-Streaming/master/docs/img/streaming-flow.png)
 ref: [Spark Streaming](http://spark.apache.org/docs/latest/streaming-programming-guide.html)
 
 If we want to split the streaming, of course we need to set a parameter to do the splitting, and store the meta information of each batch job. So basically spark streaming contain following modules:
@@ -70,7 +70,11 @@ If we want to split the streaming, of course we need to set a parameter to do th
 
 `StreamingContext` is use to create `Dstream`, and the streaming computation is started or stoped by `StreamingContext.start()` and `StreamingContext.stop()`.
 
-You can create `StreamingContext` from a `SparkConf` or from an existing `SparkContext`. And when creating `StreamingContext`, also need to set the batch duration information, this is used to control how much data one job will process. 
+You can create `StreamingContext` from a `SparkConf` or from an existing `SparkContext` or restore from a checkpoint. And when creating `StreamingContext`, also need to set the batch duration information, this is used to control how much data one job will process. 
 
 * 
+
+## Problem
+1. spark.master should be set as local[n], n > 1 in local mode if you have receivers" +   " to get data, otherwise Spark jobs will not get resources to process the received data."
+
 
