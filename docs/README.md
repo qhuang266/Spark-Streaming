@@ -12,7 +12,8 @@ Spark version: master branch (2016/11/28)
 ### Steps
 * `git clone git://github.com/apache/spark.git
 `
-* `build/mvn`
+* `./dev/make-distribution.sh --name spark-2.0.2 --tgz --mvn mvn -Psparkr -Phadoop-2.7 -Phive -Phive-thriftserver -Pyarn`
+* open Intellij IDEA, `open` -> `./pom.xml`, it all detect all modules in spark. And you can choose needed profiled, it will resolve the dependencies.  This may cost a long time.
 
 ## Chapter 1 - Streaming Job Example, Module Introduction
 
